@@ -11,11 +11,7 @@ export default (posts = [], action) => {
         case FETCH_ALL:
             return action.payload
         case CREATE:
-<<<<<<< HEAD
             return [ ...posts, action.payload]
-=======
-            return [ ... posts, action.payload]
->>>>>>> ee88868 (Revert "Pieniä korjauksia")
         default:
             return posts
     }
