@@ -1,3 +1,5 @@
+//Käytetty import syntaksia, koska se on helppokäyttöistä. (lisätty modules package.json)
+
 import express from 'express'
 import bodyParser from 'body-parser'
 import mongoose from 'mongoose'
