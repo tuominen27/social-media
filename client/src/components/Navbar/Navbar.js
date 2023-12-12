@@ -4,6 +4,8 @@ import { AppBar, Typography  } from '@material-ui/core'
 import useStyles from './styles'
 import parhaat from '../../images/parhaat.png'
 
+//Navigointibaari luotu, löytyy pelkkä otsikko, voisi olla enemmänkin.
+
 const Navbar = () => {
     const classes = useStyles()
     

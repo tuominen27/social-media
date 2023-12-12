@@ -1,5 +1,8 @@
 import mongoose from 'mongoose'
 
+//Luotu mongoosen avulla julkaisun rakenne, mongoosen Hyödynnetty mongoosen Skeemaa.
+
+//Määritetty mitä julkaisussa täytyy olla, jotta voi julkaista
 const postSchema = mongoose.Schema({
     title: String,
     message: String,
@@ -10,12 +13,13 @@ const postSchema = mongoose.Schema({
         type: Number,
         default: 0
     },
-    crearedAt: {
+    createdAt: {
         type: Date,
         default: new Date()
     },
 })
 
+//Muutettu skeema modeliksi, joten voidaan eksportata model.
 const PostMessage = mongoose.model('PostMessage', postSchema)
 
 export default PostMessage

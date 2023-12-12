@@ -6,6 +6,8 @@ import { getPosts } from '../../actions/posts'
 import Posts from '../Posts/Posts'
 import Form from '../Form/Form'
 
+//Funktio joka luo julkisivun kokonaisuuden. Saadaan aseteltua julkaisut ja julkaisuikkuna vierekkäin tässä funktiossa.
+
 const Home = () => {
 
     const [currentId, setCurrentId] = useState(null)
@@ -16,6 +18,7 @@ const Home = () => {
     }, [currentId, dispatch])
 
     return(
+        //Grow komponentti tarjoaa yksinkertaisia animaatioita
         <Grow in>
             <Container>
                 <Grid container justifyContent='space-between' alignItems="stretch" spacing={3}>

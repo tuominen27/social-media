@@ -1,7 +1,10 @@
 import { FETCH_ALL, CREATE, UPDATE, DELETE, LIKE } from '../constants/actionTypes'
 
+//reducer on funktio, joka hyväksyy tilan ja toiminnon.
 export default (posts = [], action) => {
+    //Käytetään switch komentoa
     switch (action.type) {
+        //Luodaan kaikki tyypit.
         case DELETE:
             return posts.filter((post) => post._id !== action.payload)
         case UPDATE:

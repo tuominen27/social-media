@@ -1,8 +1,14 @@
 import PostMessage from "../models/postMessage.js"
 import mongoose from 'mongoose'
 
+//Luotu kaikki toiminnost siihen kun palvelimelta tulee pyyntöjä ja kun sinne lähetetään pyyntöjä
+//Luotu reittien händlerit, joita käytetään routes/posts tiedostossa.
+
+//Exportataan suoraan funktion luomisen yhteydessä
 export const getPosts = async (req, res) => {
+    //käytetään try ja catchia, jotta pysytään perässä ongelmista
     try {
+        //Haetaan kaikki julkaisut tietokannasta asynkronisena toimintana
         const postMessages = await PostMessage.find()
 
         console.log(postMessages)
@@ -13,13 +19,17 @@ export const getPosts = async (req, res) => {
 }
 
 export const createPost = async (req, res) => {
+    //Määritetään rakenne julkIAULLW
     const post = req.body
 
+    //Määritetään uusi julkaisu.
     const newPost = new PostMessage(post)
 
     try {
+        //asynkroninen operaatio
         await newPost.save()
 
+        //Julkaisu onnistui ja uusi julkaisu lähetetään
         res.status(201).json(newPost)
     } catch (error) {
         res.status(409).json({ message: error.message })

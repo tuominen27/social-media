@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react"
+//Käytettävät formit suoraan material-uista
 import { TextField, Button, Typography, Paper } from "@material-ui/core"
 import FileBase from 'react-file-base64'
 import { useDispatch } from 'react-redux'
@@ -7,11 +8,15 @@ import { useSelector } from "react-redux"
 import useStyles from './styles'
 import { createPost, updatePost } from '../../actions/posts'
 
+//Luotu formi, joka luo osan jossa voi tehdä julkaisun. Käytetty tyylejä suoraan styles tiedostosta hyödyntäen UseStylesiä
+
 const Form = ({ currentId, setCurrentId }) => {
+    //Muuttujat joiden avulla voidaan määrittää kaikki tekstikenttään tarvittavat tilat
     const [postData, setPostData] = useState({creator: '', title: '', message: '', tags: '', selectedFile: ''})
     const post = useSelector((state) => currentId ? state.posts.find((p) => p._id === currentId) : null)
     const classes = useStyles()
     const dispatch = useDispatch()
+
 
     useEffect(() => {
         if(post) setPostData(post)
@@ -21,7 +26,7 @@ const Form = ({ currentId, setCurrentId }) => {
         setCurrentId(0)
         setPostData({ creator: '', title: '', message: '', tags: '', selectedFile: '' })
     }
-
+    //Lähetetään dispatchin avulla 
     const handleSubmit = (e) => {
         e.preventDefault()
 
@@ -35,6 +40,10 @@ const Form = ({ currentId, setCurrentId }) => {
     }
 
     return(
+        //Luodaan tässä koko formi, joka on Paer mallinen
+        //Handler funktioilla saatu toiminnot formeille
+        //...postData jaetaan, jotta voidaan muokata vain kyseisen muuttujan teittyä arvoa
+        //classes.root ja classes.form saadaan suoraan tyyleistä
         <Paper className={classes.paper}>
             <form autoComplete="off" noValidate className={`${classes.root} ${classes.form}`} onSubmit={handleSubmit}>
                 <Typography variant="h6">Parhaiden tulosten luominen</Typography>

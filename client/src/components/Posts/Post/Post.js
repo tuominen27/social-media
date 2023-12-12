@@ -9,6 +9,9 @@ import { useDispatch } from 'react-redux'
 
 import { deletePost, likePost } from "../../../actions/posts"
 
+//Post komponenttia käytetään vain ainoastaan Posts komponentissa, siksi luotu kansia sen sisälle
+//Funktio määrittelee yksittäisen julkaisun käsittelyn ja sen miten se esitetään.
+
 const Post = ({ post, setCurrentId }) => {
     const classes = useStyles()
     const dispatch = useDispatch()
